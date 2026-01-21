@@ -852,6 +852,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+  align-items: center;
 }
 
 .social-links {
@@ -1206,37 +1207,45 @@ body {
 @media (max-width: 768px) {
   .skills-grid {
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem 1rem;
-    padding: 1rem 0.5rem;
+    gap: 2.5rem 1.5rem;
+    padding: 2rem 1rem;
   }
   
   .skill-item {
-    min-height: 100px;
+    min-height: 110px;
+    gap: 0.5rem;
   }
   
   .skill-item-spacer {
-    min-height: 100px;
+    min-height: 110px;
   }
   
   .skill-icon {
-    font-size: 3rem;
-    width: 48px;
-    height: 48px;
+    font-size: 3.2rem;
+    width: 56px;
+    height: 56px;
+  }
+  
+  .skill-label {
+    font-size: 0.8rem;
+    line-height: 1.3;
+    white-space: normal;
+    max-width: 100px;
   }
   
   /* Mobile database icon adjustments */
   .fa-database {
-    font-size: 2.7rem !important;
+    font-size: 2.8rem !important;
     transform: translateY(0px);
   }
   
   .devicon-mongodb-plain {
-    font-size: 2.9rem !important;
+    font-size: 3rem !important;
     transform: translateY(0px);
   }
   
   .devicon-firebase-plain {
-    font-size: 2.9rem !important;
+    font-size: 3rem !important;
     transform: translateY(0px);
   }
   
@@ -1892,6 +1901,23 @@ body {
   
   .hero-title {
     font-size: 2.5rem;
+    text-align: center;
+  }
+  
+  .hero-subtitle {
+    text-align: center;
+  }
+  
+  .hero-description {
+    text-align: center;
+  }
+  
+  .hero-buttons {
+    justify-content: center;
+  }
+  
+  .social-links {
+    justify-content: center;
   }
   
   .section-title {
@@ -1951,10 +1977,44 @@ body {
   .hero-buttons {
     flex-direction: column;
     width: 100%;
+    gap: 0.75rem;
   }
   
   .hero-buttons .btn {
     width: 100%;
+    justify-content: center;
+  }
+  
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem 1rem;
+    padding: 1.5rem 0.5rem;
+  }
+  
+  .skill-item {
+    min-height: 100px;
+    gap: 0.5rem;
+  }
+  
+  .skill-icon {
+    font-size: 2.8rem;
+    width: 50px;
+    height: 50px;
+  }
+  
+  .skill-label {
+    font-size: 0.75rem;
+    max-width: 90px;
+  }
+  
+  /* Small phone database icon adjustments */
+  .fa-database {
+    font-size: 2.5rem !important;
+  }
+  
+  .devicon-mongodb-plain,
+  .devicon-firebase-plain {
+    font-size: 2.7rem !important;
   }
   
   .profile-wrapper {

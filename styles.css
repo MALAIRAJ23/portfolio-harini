@@ -1217,8 +1217,8 @@ body {
 }
 @media (max-width: 768px) {
   .skills-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2.5rem 1.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 1.5rem;
     padding: 2rem 1rem;
   }
   
@@ -1228,7 +1228,7 @@ body {
   }
   
   .skill-item-spacer {
-    min-height: 110px;
+    display: none;
   }
   
   .skill-icon {
@@ -1281,7 +1281,51 @@ body {
   
   .skill-category-title {
     font-size: 0.85rem;
-    margin: 0.5rem 0 0.25rem 0;
+    margin: 1.5rem 0 0.5rem 0;
+    grid-column: 1 / -1;
+  }
+}
+
+/* Extra small screens (under 480px) */
+@media (max-width: 480px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem 1rem;
+    padding: 1.5rem 1rem;
+  }
+  
+  .skill-item {
+    min-height: 100px;
+    gap: 0.5rem;
+  }
+  
+  .skill-icon {
+    font-size: 2.8rem;
+    width: 50px;
+    height: 50px;
+  }
+  
+  .skill-label {
+    font-size: 0.7rem;
+    max-width: 90px;
+  }
+  
+  .skill-category-title {
+    font-size: 0.75rem;
+    margin: 1rem 0 0.5rem 0;
+  }
+  
+  /* Adjust database icons for extra small screens */
+  .fa-database {
+    font-size: 2.4rem !important;
+  }
+  
+  .devicon-mongodb-plain {
+    font-size: 2.6rem !important;
+  }
+  
+  .devicon-firebase-plain {
+    font-size: 2.6rem !important;
   }
 }
 

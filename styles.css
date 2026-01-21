@@ -1082,21 +1082,15 @@ body {
 
 .about-text-card {
   padding-top: 2rem;
-}
-
-.card {
-  background-color: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(200, 180, 220, 0.3);
-  border-radius: var(--radius);
-  padding: 2rem;
-  box-shadow: var(--shadow-sm);
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .about-paragraph {
   font-size: 1.125rem;
   line-height: 1.8;
   color: var(--muted-foreground);
+  text-align: center;
 }
 
 .about-paragraph + .about-paragraph {
@@ -1483,9 +1477,16 @@ body {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.school-badge span {
+  color: var(--foreground);
+}
+
+.school-badge .icon {
   color: var(--primary);
-  font-weight: 500;
-  font-size: 0.875rem;
 }
 
 .education-degree {

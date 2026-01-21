@@ -3,36 +3,40 @@ const hamburger = document.getElementById('hamburger-btn');
 const navMenu = document.getElementById('nav-menu');
 const navLinks = document.querySelectorAll('.nav-link');
 
-// Toggle menu ONLY on hamburger click
-hamburger.addEventListener('click', (e) => {
-  e.stopPropagation();
-  hamburger.classList.toggle('active');
-  navMenu.classList.toggle('active');
-});
-
-// Close menu when a link is clicked
-navLinks.forEach(link => {
-  link.addEventListener('click', () => {
-    hamburger.classList.remove('active');
-    navMenu.classList.remove('active');
+if (hamburger && navMenu) {
+  // Toggle menu ONLY on hamburger click
+  hamburger.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log('Hamburger clicked'); // Debug
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
   });
-});
 
-// Close menu when clicking outside (but not on hamburger)
-document.addEventListener('click', (e) => {
-  if (!e.target.closest('.nav') && navMenu.classList.contains('active')) {
-    hamburger.classList.remove('active');
-    navMenu.classList.remove('active');
-  }
-});
+  // Close menu when a link is clicked
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
+    });
+  });
 
-// Close menu on window resize above 768px
-window.addEventListener('resize', () => {
-  if (window.innerWidth > 768) {
-    hamburger.classList.remove('active');
-    navMenu.classList.remove('active');
-  }
-});
+  // Close menu when clicking outside (but not on hamburger)
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav') && navMenu.classList.contains('active')) {
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
+    }
+  });
+
+  // Close menu on window resize above 768px
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
+    }
+  });
+}
 
 // ========== ACTIVE NAVIGATION INDICATOR ==========
 const navIndicator = document.querySelector('.nav-indicator');

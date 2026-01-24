@@ -1,27 +1,39 @@
-// ========== MOBILE NAVBAR TOGGLE ==========
-const navToggle = document.querySelector('.nav-toggle');
-const navMenu = document.querySelector('.nav-links');
+// ========== HAMBURGER MENU ==========
+const hamburger = document.getElementById('hamburger-btn');
+const navMenu = document.getElementById('nav-menu');
+const navLinks = document.querySelectorAll('.nav-link');
 
-if (navToggle && navMenu) {
-  navToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('open');
-    navToggle.setAttribute('aria-expanded', navMenu.classList.contains('open'));
+if (hamburger && navMenu) {
+  // Toggle menu ONLY on hamburger click
+  hamburger.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log('Hamburger clicked'); // Debug
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
   });
 
-  navMenu.querySelectorAll('a').forEach(link => {
+  // Close menu when a link is clicked
+  navLinks.forEach(link => {
     link.addEventListener('click', () => {
-      if (navMenu.classList.contains('open')) {
-        navMenu.classList.remove('open');
-        navToggle.setAttribute('aria-expanded', 'false');
-      }
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
     });
+  });
+
+  // Close menu when clicking outside (but not on hamburger)
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav') && navMenu.classList.contains('active')) {
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
+    }
   });
 
   // Close menu on window resize above 768px
   window.addEventListener('resize', () => {
-    if (window.innerWidth > 768 && navMenu.classList.contains('open')) {
-      navMenu.classList.remove('open');
-      navToggle.setAttribute('aria-expanded', 'false');
+    if (window.innerWidth > 768) {
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
     }
   });
 }
